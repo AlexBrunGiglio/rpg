@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <link href="assets/css/main.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <title>Eldra RPG</title>
+</head>
+
+<body>
+    <div id="historiaClasse">
+        <div class="container">
+            <div class="row prologue">
+                <p class="ml3" id="storyNext">
+                    La nation voisine Ekona souhaite s’emparer d’une puissante magie noire : <br> "La
+                    magie
+                    perdu de Sevrius." <br>
+                    Un de nos espions nous a rapporté que le roi d’Ekona veut la guerre avec notre pays et s’emparer de
+                    toutes nos richesses et rendre esclaves tous nos citoyens. <br>
+                    Nous avons besoin de toi pour empêcher que la guerre n’éclate entre nos deux pays. <br>
+                    Ta mission sera de trouver "la relique d’Espa" permettant de sceller n’importe quelle magie. <br>
+                    Ta mission sera rude et nous fondons beaucoup d’espoirs en toi. <br>
+                    Dans un premier dans voici les armes que nous pouvons de proposer pour ton aventure...
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="class-img text-center" id="choix-classe">
+                Veuillez choisir une classe parmis les 3 proposées :
+                <div class="row img-container">
+                    <div class="col type">
+                        <div class="row">
+                            <div class="col">
+                                <img id="archer" src="assets/img/archer.png">
+                            </div>
+                            <div class="col text-left">
+                                <h6 class="class-name">Archer</h6>
+                                <p>
+                                    <img src="https://img.icons8.com/material/24/000000/like--v1.png"> 14/20<br>
+                                    <img src="https://img.icons8.com/material/24/000000/armored-boot.png"> 80/100 <br>
+                                    <img src="https://img.icons8.com/material/24/000000/knight-shield.png"> 40/100 <br>
+                                    <img src="https://img.icons8.com/material/24/000000/katana--v1.png"> 2-4 <br>
+                                    <img src="https://img.icons8.com/material/24/000000/witch.png"> 20/60 <br>
+                                </p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios"
+                                        id="exampleRadios1" value="0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col type ">
+                        <div class="row">
+                            <div class="col">
+                                <img id="guerrier" src="assets/img/guerrier.png">
+                            </div>
+                            <div class="col text-left">
+                                <h6 class="class-name">Guerrier</h6>
+                                <p>
+                                    <img src="https://img.icons8.com/material/24/000000/like--v1.png"> 17/20<br>
+                                    <img src="https://img.icons8.com/material/24/000000/armored-boot.png"> 60/100 <br>
+                                    <img src="https://img.icons8.com/material/24/000000/knight-shield.png"> 80/100 <br>
+                                    <img src="https://img.icons8.com/material/24/000000/katana--v1.png"> 3-8 <br>
+                                    <img src="https://img.icons8.com/material/24/000000/witch.png"> 10/60 <br>
+                                </p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios"
+                                        id="exampleRadios1" value="1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col type">
+                        <div class="row">
+                            <div class="col">
+                                <img id="mage" src="assets/img/mage.png">
+                            </div>
+                            <div class="col text-left">
+                                <h6 class="class-name">Mage</h6>
+                                <p>
+                                    <img src="https://img.icons8.com/material/24/000000/like--v1.png"> 16/20<br>
+                                    <img src="https://img.icons8.com/material/24/000000/armored-boot.png"> 50/100 <br>
+                                    <img src="https://img.icons8.com/material/24/000000/knight-shield.png"> 60/100 <br>
+                                    <img src="https://img.icons8.com/material/24/000000/katana--v1.png"> 1-5 <br>
+                                    <img src="https://img.icons8.com/material/24/000000/witch.png"> 50/60 <br>
+                                </p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios"
+                                        id="exampleRadios1" value="2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div id="histoireButton"><button type="button" class="btn btn-dark prologue-btn" onclick="histoire();"><i
+                        class="fas fa-caret-square-right"></i>
+                    Suivant</button></div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/7845f0819a.js" crossorigin="anonymous"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

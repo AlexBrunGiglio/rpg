@@ -1,0 +1,91 @@
+* {
+    font-family: 'Press Start 2P', cursive;
+}
+
+body {
+    background: url("../img/background.jpg");
+    height: 100vh;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.home {
+    margin-top: 250px;
+}
+
+.title {
+    margin-left: 100px;
+}
+
+.titleNew {
+    margin-left: -80px;
+    width: 50vw;
+}
+
+.response {
+    margin-top: 50px;
+}
+
+.choose {
+    font-family: 'Press Start 2P', cursive;
+    margin-left: 500px;;
+}
+
+.inputNew {
+    width: 30vw;
+    margin-top: 20px;
+}
+
+.menu {
+    margin-left: 50px;
+}
+
+button {
+    margin-top: 20px;
+}
+
+.prologue {
+    margin-top: 150px;
+    background-color: rgba(104, 104, 107, 0.644);
+    border-radius: 10px;
+}
+
+.prologue-btn {
+    float: right;
+}
+
+.class-img {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: none;
+}
+
+.type {
+    background-color: rgba(178, 178, 180, 0.521);
+    width: 300px;
+    border-radius: 10px;
+}
+
+#archer {
+    height: 250px;
+    widows: 150px;
+}
+
+#guerrier {
+    height: 250px;
+    width: 175px;
+}
+
+#mage {
+    height: 250px;
+    width: 200px;
+}
+
+.img-container {
+    margin-top: 50px;
+}
+
+.class-name {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
