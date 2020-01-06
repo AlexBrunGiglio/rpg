@@ -530,20 +530,18 @@ function choixMagie() {
         if ( type_classe === "Archer" && i==1) {
             vitesse = vitesse + 1;
             console.log(vitesse);
-            histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='magieSuite()'><i class='fas fa-caret-square-right'></i> Valider</button>";
+            magieSuite();
 
 
         } else if ( type_classe ==="Guerrier") {
             mana = mana + 10;
             console.log(mana);
-            histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='magieSuite()'><i class='fas fa-caret-square-right'></i> Valider</button>";
-
+            magieSuite();
 
         } else {
             degatsmin = degatsmin + 1;
             console.log(degatsmin);
-            histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='magieSuite()'><i class='fas fa-caret-square-right'></i> Valider</button>";
-
+            magieSuite();
         }
     }
     else {
