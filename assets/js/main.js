@@ -587,7 +587,27 @@ function choixKaleos2() {
 
 
 function brocant() {
+    let prop = document.getElementById('storyNext');
+    let choix = document.getElementById('choix-classe');
 
+    choix.innerHTML = " ";
+    histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='achatBrocant()'><i class='fas fa-caret-square-right'></i> Valider</button>";
+
+    prop.innerHTML = "Sur un étalage vous trouvez une vieille carte, vous vous approcher et soudain. <br> - Bonjour, Vous z'avez vu zette belle carte monzieur ? Eh Franzhement personne arrive à l'ouvrir... Mais zi tu veux je te la vends 30 runes !"
+    choix.innerHTML = "<div class='row radio'> <div class='col'> <h6 class='class-name'>Acheter la carte</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='0' checked> </div></div><div class='col'> <h6 class='class-name'>Refuser</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='1'> </div></div></div>";
+
+}
+
+function achatBrocant() {
+    let valeur = document.querySelector('input[name="exampleRadios"]:checked').value;
+
+    if (valeur == 0) {
+        runes = runes -30;
+        auberge();
+    }
+    else {
+        auberge();
+    }
 }
 
 function passants() {
@@ -595,15 +615,48 @@ function passants() {
     let choix = document.getElementById('choix-classe');
 
     choix.innerHTML = " ";
-    histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick=''><i class='fas fa-caret-square-right'></i> Valider</button>";
+    histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='passantChoix()'><i class='fas fa-caret-square-right'></i> Valider</button>";
 
     prop.innerHTML = "Les passants vous ignores complétement, vous parressez inexistant pour eux."
-    choix.innerHTML = "<div class='row radio'> <div class='col'> <h6 class='class-name'>Aller voir les brocantes</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='0' checked> </div></div><div class='col'> <h6 class='class-name'>Interpeller des passants</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='1'> </div></div><div class='col'> <h6 class='class-name'>Se reposer dans une auberge</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='2'> </div></div></div>";
+    choix.innerHTML = "<div class='row radio'> <div class='col'> <h6 class='class-name'>Aller voir les brocantes</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='0' checked> </div></div><div class='col'> <h6 class='class-name'>Se reposer</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='1'> </div></div><div class='col'> <h6 class='class-name'>Aller voir l'armurier</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='2'> </div></div></div>";
 
+} 
+
+function passantChoix() {
+
+    let valeur = document.querySelector('input[name="exampleRadios"]:checked').value;
+
+    if (valeur == 0) {
+        brocant();
+    } else if ( valeur == 1){
+        auberge();
+    }
+    else {
+        armurier();
+    }
 }
 
 function auberge() {
+    let prop = document.getElementById('storyNext');
+    let choix = document.getElementById('choix-classe');
 
+    choix.innerHTML = " ";
+    histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='waiting()'><i class='fas fa-caret-square-right'></i> Valider</button>";
+
+    prop.innerHTML = "Après cette longue journée vos yeux commencent à se fermer seuls. Vous décidez d'aller à l'auberge la plus proche afin de vous reposer et vous restaurer. La nuit vous coutera 50 runes."
+    runes = runes - 50;
+    console.log(runes);
+}
+
+function waiting() {
+    let prop = document.getElementById('storyNext');
+    let choix = document.getElementById('choix-classe');
+
+    choix.innerHTML = " ";
+    histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='gohome()'><i class='fas fa-caret-square-right'></i> Valider</button>";
+
+    prop.innerHTML = "La suite du rpg n'est pas encore sortie. Pour l'instant l'histoire s'arrete ici mais vous pourrez continue l'aventure Eldra bientôt !"
+    
 }
 
 // Wrap every letter in a span
