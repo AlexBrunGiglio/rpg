@@ -66,6 +66,11 @@ button {
     border-radius: 10px;
 }
 
+.radio {
+    background-color: rgba(178, 178, 180, 0.521);
+    border-radius: 10px;
+}
+
 #archer {
     height: 250px;
     widows: 150px;
