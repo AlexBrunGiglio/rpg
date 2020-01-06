@@ -459,9 +459,9 @@ function choixNord() {
 
 function debutAventure() {
     document.body.style.backgroundImage = "url('assets/img/bg-aventure.jpg')";
-    document.body.style.backgroundPosition ="center";
+    document.body.style.backgroundPosition = "center";
     document.body.style.backgroundSize = "cover";
-    document.body.style.height="100vh";
+    document.body.style.height = "100vh";
 
     let prop = document.getElementById('storyNext');
     let choix = document.getElementById('choix-classe');
@@ -527,13 +527,13 @@ function choixMagie() {
     if (valeur == 0) {
         let i = 1;
 
-        if ( type_classe === "Archer" && i==1) {
+        if (type_classe === "Archer" && i == 1) {
             vitesse = vitesse + 1;
             console.log(vitesse);
             magieSuite();
 
 
-        } else if ( type_classe ==="Guerrier") {
+        } else if (type_classe === "Guerrier") {
             mana = mana + 10;
             console.log(mana);
             magieSuite();
@@ -575,10 +575,13 @@ function choixKaleos2() {
     let valeur = document.querySelector('input[name="exampleRadios"]:checked').value;
 
     if (valeur == 0) {
-        magie();
+        brocant();
+    }
+    else if (valeur == 1) {
+        passants();
     }
     else {
-        debutAventure();
+        auberge();
     }
 }
 
@@ -588,6 +591,18 @@ function brocant() {
 }
 
 function passants() {
+    let prop = document.getElementById('storyNext');
+    let choix = document.getElementById('choix-classe');
+
+    choix.innerHTML = " ";
+    histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick=''><i class='fas fa-caret-square-right'></i> Valider</button>";
+
+    prop.innerHTML = "Les passants vous ignores complétement, vous parressez inexistant pour eux."
+    choix.innerHTML = "<div class='row radio'> <div class='col'> <h6 class='class-name'>Aller voir les brocantes</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='0' checked> </div></div><div class='col'> <h6 class='class-name'>Interpeller des passants</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='1'> </div></div><div class='col'> <h6 class='class-name'>Se reposer dans une auberge</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='2'> </div></div></div>";
+
+}
+
+function auberge() {
 
 }
 
