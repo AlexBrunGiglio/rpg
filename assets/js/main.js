@@ -124,7 +124,7 @@ function hero() {
 
     let chooseclass = document.getElementById('choix-classe').style.display = "none";
     let storyNext = document.getElementById('storyNext');
-    storyNext.innerHTML = "Vous allez à présent débuter l'aventure ! <br> Vous obtenez 100 runes qui vous perettrons d'avancer dans votre aventure. <br> Un conseiller vous remets un laissé passer permettant de se rendre partout dans la nation. <br> Bon courage !";
+    storyNext.innerHTML = "Vous allez à présent débuter l'aventure ! <br> Vous obtenez 100 runes qui vous permettrons d'avancer dans votre aventure. <br> Un conseiller vous remets un laissé passer permettant de se rendre partout dans la nation. <br> Bon courage !";
     histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='histoire1()'><i class='fas fa-caret-square-right'></i> Commencer l'aventure</button>";
 }
 
@@ -184,18 +184,49 @@ function leave() {
     let choix = document.getElementById('choix-classe');
     console.log(papier);
 
-    choix.innerHTML = " ";
-    histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='choixDest()'><i class='fas fa-caret-square-right'></i> Valider</button>";
+    if (papier == 1) {
+        choix.innerHTML = " ";
+        histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='choixDest()'><i class='fas fa-caret-square-right'></i> Valider</button>";
 
-    prop.innerHTML = "Vous quittez la capitale. <br> Quelle est votre destination ? "
-    choix.innerHTML = "<div class='row radio'> <div class='col'> <h6 class='class-name'>Nord</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='0' checked> </div></div><div class='col'> <h6 class='class-name'>Est</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='1'> </div></div><div class='col'> <h6 class='class-name'>Ouest</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='2'> </div></div><div class='col'> <h6 class='class-name'>Sud</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='3'> </div></div></div>";
+        prop.innerHTML = "Vous quittez la capitale. <br> Quelle est votre destination ? "
+        choix.innerHTML = "<div class='row radio'> <div class='col'> <h6 class='class-name'>Nord</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='0' checked> </div></div><div class='col'> <h6 class='class-name'>Est</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='1'> </div></div><div class='col'> <h6 class='class-name'>Ouest</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='2'> </div></div><div class='col'> <h6 class='class-name'>Sud</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='3'> </div></div></div>";
+    } else {
+        choix.innerHTML = " ";
+        histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='choixGarde()'><i class='fas fa-caret-square-right'></i> Valider</button>";
+
+        prop.innerHTML = "Un garde vient à votre rencontre et remarque que vous n'avez pas de laissé-passer. <br> Vous lui expliquez tant bien que mal la situation, le garde veux vous arreter. "
+        choix.innerHTML = "<div class='row radio'> <div class='col'> <h6 class='class-name'>Se battre</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='0' checked> </div></div><div class='col'> <h6 class='class-name'>Fuir</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='1'> </div></div><div class='col'> <h6 class='class-name'>Se laisser arreter par le garde</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='1'> </div></div></div>";
+    }
+
+}
+function choixGarde() {
+    let valeur = document.querySelector('input[name="exampleRadios"]:checked').value;
+
+    if (valeur == 2) {
+        fail();
+    }
+
+    else {
+        garde();
+    }
+}
+
+function garde() {
+    let prop = document.getElementById('storyNext');
+    let choix = document.getElementById('choix-classe');
+
+    choix.innerHTML = " ";
+    histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='gohome()'><i class='fas fa-caret-square-right'></i> Valider</button>";
+
+    prop.innerHTML = "Au moment de faire quoi que ce soit, quatre autres gardes arrivent, au moindre pas vous mourrez. <br> Vous n'avez pas pu réaliser votre quête. "
+
 }
 
 function choixDest() {
     let valeur = document.querySelector('input[name="exampleRadios"]:checked').value;
 
     if (valeur == 1) {
-
+        debutAventure();
     }
 
     else {
@@ -384,7 +415,7 @@ function quartiersS() {
     histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='quartiersN()'><i class='fas fa-caret-square-right'></i> Vous allez dans les quartiers Nord dans le doute</button>";
 
     prop.innerHTML = "Décidemment aujourd'hui la musique et l'ambiance sont très présente. <br> Vous n'êtes plus concentré sur la missions d'ailleurs... <br> Vous interrogez des gens mais personne n'a l'air de savoir quoi que ce soit."
- 
+
 }
 
 function quartiersS2() {
@@ -396,7 +427,7 @@ function quartiersS2() {
     histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick=''><i class='fas fa-caret-square-right'></i> Vous allez dans les quartiers Nord dans le doute</button>";
 
     prop.innerHTML = "La musique vous fait danser jusqu'à ce que vous trouviez une lettre par terre.. <br> <b>C'est votre laissé-passer</b> <br> Vous êtes chanceux malgrè vous."
- 
+
 }
 
 function quartiersN() {
@@ -418,7 +449,7 @@ function choixNord() {
         quartiersS2();
     }
 
-    else if(valeur == 1) {
+    else if (valeur == 1) {
         taverne();
     }
     else {
@@ -426,6 +457,141 @@ function choixNord() {
     }
 }
 
+function debutAventure() {
+    document.body.style.backgroundImage = "url('assets/img/bg-aventure.jpg')";
+    document.body.style.backgroundPosition ="center";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.height="100vh";
+
+    let prop = document.getElementById('storyNext');
+    let choix = document.getElementById('choix-classe');
+
+    choix.innerHTML = " ";
+    histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='choixKaleos()'><i class='fas fa-caret-square-right'></i> Valider</button>";
+
+    prop.innerHTML = "Vous arrivez dans le village de Kaleos. Cité impériale et portuaire. <br> Cette ville est remplie de garde, ne perdez pas votre laissé-passer. <br> Vous réfléchissez à quelquechose... <br> Vous ne connaissez pas le nom de la personne que vous devez rencontrer."
+    choix.innerHTML = "<div class='row radio'> <div class='col'> <h6 class='class-name'>Chercher un Armurier</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='0' checked> </div></div><div class='col'> <h6 class='class-name'>Chercher un Brocantier</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='1'> </div></div><div class='col'> <h6 class='class-name'>Demander aux passants</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='2'> </div></div></div>";
+}
+
+function choixKaleos() {
+    let valeur = document.querySelector('input[name="exampleRadios"]:checked').value;
+
+    if (valeur == 0) {
+        armurier();
+    }
+
+    else if (valeur == 1) {
+        brocant();
+    }
+    else {
+        passants();
+    }
+}
+
+function armurier() {
+    let prop = document.getElementById('storyNext');
+    let choix = document.getElementById('choix-classe');
+
+    choix.innerHTML = " ";
+    histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='choixArmur()'><i class='fas fa-caret-square-right'></i> Valider</button>";
+
+    prop.innerHTML = "Après 20 minutes de recherches vous trouvez une vieille boutique de couteau un peu étrange. <br> Souhaitez vous entrer ?"
+    choix.innerHTML = "<div class='row radio'> <div class='col'> <h6 class='class-name'>Oui</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='0' checked> </div></div><div class='col'> <h6 class='class-name'>Non</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='1'> </div></div></div>";
+
+}
+
+function choixArmur() {
+    let valeur = document.querySelector('input[name="exampleRadios"]:checked').value;
+    if (valeur == 0) {
+        magie();
+    }
+    else {
+        debutAventure();
+    }
+}
+
+function magie() {
+    let prop = document.getElementById('storyNext');
+    let choix = document.getElementById('choix-classe');
+
+    choix.innerHTML = " ";
+    histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='choixMagie()'><i class='fas fa-caret-square-right'></i> Valider</button>";
+
+    prop.innerHTML = "Une vieille femme apparait et en même temps votre arme commence à briller. <br> - C'est normal, ne t'affole pas. <br> Vous l'interrogez sur son prénom <br> <br>- Mon nom n'a pas d'importance, je t'attendais, tu es celui qui doit sauver la nation n'est-ce-pas ? <br> Vous hauchez de la tête. <br> - Ce lieu est un sanctuaire pour les armes bénites que tu as reçu à la capitale.. Tu peux si tu le veux recevoir une bénédiction qui te réservera des surprises. "
+    choix.innerHTML = "<div class='row radio'> <div class='col'> <h6 class='class-name'>Accepter</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='0' checked> </div></div><div class='col'> <h6 class='class-name'>Refuser</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='1'> </div></div></div>";
+
+}
+
+function choixMagie() {
+    let valeur = document.querySelector('input[name="exampleRadios"]:checked').value;
+    if (valeur == 0) {
+        let i = 1;
+
+        if ( type_classe === "Archer" && i==1) {
+            vitesse = vitesse + 1;
+            console.log(vitesse);
+            histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='magieSuite()'><i class='fas fa-caret-square-right'></i> Valider</button>";
+
+
+        } else if ( type_classe ==="Guerrier") {
+            mana = mana + 10;
+            console.log(mana);
+            histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='magieSuite()'><i class='fas fa-caret-square-right'></i> Valider</button>";
+
+
+        } else {
+            degatsmin = degatsmin + 1;
+            console.log(degatsmin);
+            histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='magieSuite()'><i class='fas fa-caret-square-right'></i> Valider</button>";
+
+        }
+    }
+    else {
+
+    }
+}
+
+function magieSuite() {
+    let prop = document.getElementById('storyNext');
+    let choix = document.getElementById('choix-classe');
+
+    choix.innerHTML = " ";
+    histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='retoursRue()'><i class='fas fa-caret-square-right'></i> Valider</button>";
+
+    prop.innerHTML = "Bon maintenant je dois te prévenir la route pour trouver la relique et très longue, elle est aussi semé d'embuche. <br> A partir de maintenant je ne peux plus t'aider bon courage. <br> <i>Vous demandez la position de la relique</i> <br> La vieille femme vous mets dehors sans que vous ne puissiez y répondre."
+}
+
+function retoursRue() {
+    let prop = document.getElementById('storyNext');
+    let choix = document.getElementById('choix-classe');
+
+    choix.innerHTML = " ";
+    histoireButton.innerHTML = "<button class='btn btn-dark prologue-btn' onclick='choixKaleos2()'><i class='fas fa-caret-square-right'></i> Valider</button>";
+
+    prop.innerHTML = "Que souhaitez vous faire ? "
+    choix.innerHTML = "<div class='row radio'> <div class='col'> <h6 class='class-name'>Aller voir les brocantes</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='0' checked> </div></div><div class='col'> <h6 class='class-name'>Interpeller des passants</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='1'> </div></div><div class='col'> <h6 class='class-name'>Se reposer dans une auberge</h6> <div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='2'> </div></div></div>";
+
+}
+
+function choixKaleos2() {
+    let valeur = document.querySelector('input[name="exampleRadios"]:checked').value;
+
+    if (valeur == 0) {
+        magie();
+    }
+    else {
+        debutAventure();
+    }
+}
+
+
+function brocant() {
+
+}
+
+function passants() {
+
+}
 
 // Wrap every letter in a span
 let textWrapper = document.querySelector('.ml3');
